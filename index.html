@@ -95,7 +95,7 @@
     border-bottom:1px solid var(--hairline);
   }
   .nav-inner{
-    max-width:1080px;margin:0 auto;padding:14px var(--space-5);
+    max-width:1500px;margin:0 auto;padding:14px var(--space-5);
     display:flex;align-items:center;justify-content:space-between;
   }
   .brand{
@@ -310,13 +310,19 @@
   /* ---------- Gallery ---------- */
   .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-3);}
   .gallery-tile{
-    aspect-ratio:4/3;background:var(--gold-100);border:1px solid var(--hairline);
-    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--space-2);
-    transition:background .2s;
+    aspect-ratio:4/3;position:relative;overflow:hidden;
+    background:var(--gold-100);border:1px solid var(--hairline);
   }
-  .gallery-tile:hover{background:var(--gold-200);}
-  .gallery-tile svg{width:30px;height:30px;stroke:var(--gold-700);fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;}
-  .gallery-tile span{font-family:var(--font-label);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-900);text-align:center;padding:0 8px;}
+  .gallery-tile img{
+    width:100%;height:100%;object-fit:cover;display:block;
+    transition:transform .5s ease;
+  }
+  .gallery-tile:hover img{transform:scale(1.06);}
+  .gallery-tile span{
+    position:absolute;left:0;right:0;bottom:0;padding:10px 12px 9px;
+    background:linear-gradient(to top, rgba(46,35,18,.72), rgba(46,35,18,0));
+    font-family:var(--font-label);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--white);
+  }
 
   /* ---------- Closing ---------- */
   .closing{text-align:center;padding:var(--space-7) var(--space-5);}
@@ -342,17 +348,20 @@
     .gallery-grid{grid-template-columns:1fr 1fr;}
   }
 
-  @media (max-width:720px){
+  @media (max-width:1560px){
     nav.links{
       display:none;position:absolute;top:100%;left:0;right:0;background:var(--cream);
       flex-direction:column;gap:0;border-bottom:1px solid var(--hairline);
+      max-height:80vh;overflow-y:auto;
     }
     nav.links.open{display:flex;}
     nav.links a{padding:14px var(--space-5);border-bottom:1px solid var(--hairline);}
     .burger{display:flex;}
     header.site-nav{position:sticky;}
     .nav-inner{position:relative;}
+  }
 
+  @media (max-width:720px){
     .wrap{padding:0 var(--space-4);}
     section{padding:var(--space-6) 0;}
     .people{grid-template-columns:1fr;gap:var(--space-5);}
@@ -405,7 +414,7 @@
   <div class="date-line">17. April 2027</div>
   <p class="intro">„Wir heiraten und laden Euch von Herzen ein, diesen einzigartigen Tag mit uns zu feiern.“</p>
   <div class="hero-frame">
-    <div class="inner"><img src="brautpaar.jpg" alt="Julia und Jens"></div>
+    <div class="inner"><img src="img/hero.jpg" alt="Julia und Jens"></div>
   </div>
   <div class="scroll-cue">Zum Brautpaar ↓</div>
 </section>
@@ -416,13 +425,13 @@
     <h2 class="section-title">Wir sind's</h2>
     <div class="people-with-divider">
       <div class="person">
-        <div class="avatar"><div class="ring"><img src="brautpaar.jpg" alt="Julia" style="object-position:30% 35%;"></div></div>
+        <div class="avatar"><div class="ring"><img src="img/avatar-julia.jpg" alt="Julia"></div></div>
         <div class="name">Julia Raskop</div>
         <p class="bio">„Jens bringt mich selbst in den schlimmsten Situationen noch zum Lachen. Er ist mein Seelenverwandter – der Mensch, mit dem ich vierundzwanzig Stunden am Stück verbringen kann und ihn trotzdem schon nach einer Minute wieder vermisse.“</p>
       </div>
       <div class="people-divider">&amp;</div>
       <div class="person">
-        <div class="avatar"><div class="ring"><img src="brautpaar.jpg" alt="Jens" style="object-position:65% 30%;"></div></div>
+        <div class="avatar"><div class="ring"><img src="img/avatar-jens.jpg" alt="Jens"></div></div>
         <div class="name">Jens Raskop</div>
         <p class="bio">„Julia ist die Frau an meiner Seite, die immer ein Gespür dafür hat, was ich gerade brauche – und meine Komplizin bei allem, was mit gutem Essen zu tun hat.“</p>
       </div>
@@ -652,12 +661,12 @@
     <div class="eyebrow">Fotogalerie</div>
     <h2 class="section-title">Bilder vom Tag</h2>
     <div class="gallery-grid">
-      <div class="gallery-tile"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="1"/><circle cx="12" cy="13.5" r="3.5"/><path d="M8 7 9.5 4h5L16 7"/></svg><span>Deko &amp; Details</span></div>
-      <div class="gallery-tile"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="1"/><circle cx="12" cy="13.5" r="3.5"/><path d="M8 7 9.5 4h5L16 7"/></svg><span>Getting Ready</span></div>
-      <div class="gallery-tile"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="1"/><circle cx="12" cy="13.5" r="3.5"/><path d="M8 7 9.5 4h5L16 7"/></svg><span>Trauung</span></div>
-      <div class="gallery-tile"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="1"/><circle cx="12" cy="13.5" r="3.5"/><path d="M8 7 9.5 4h5L16 7"/></svg><span>Fotoshooting</span></div>
-      <div class="gallery-tile"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="1"/><circle cx="12" cy="13.5" r="3.5"/><path d="M8 7 9.5 4h5L16 7"/></svg><span>Party &amp; Gäste</span></div>
-      <div class="gallery-tile"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="1"/><circle cx="12" cy="13.5" r="3.5"/><path d="M8 7 9.5 4h5L16 7"/></svg><span>Verlobungs-Shooting</span></div>
+      <div class="gallery-tile"><img src="img/gallery-standesamt.jpg" alt="Standesamtliche Trauung"><span>Standesamt</span></div>
+      <div class="gallery-tile"><img src="img/gallery-ja.jpg" alt="Das Ja-Wort"><span>Das Ja-Wort</span></div>
+      <div class="gallery-tile"><img src="img/gallery-bubbles.jpg" alt="Seifenblasen vor dem Standesamt"><span>Seifenblasen &amp; Freude</span></div>
+      <div class="gallery-tile"><img src="img/gallery-gala.jpg" alt="Gala-Abend am Pool"><span>Gala-Abend</span></div>
+      <div class="gallery-tile"><img src="img/gallery-julia.jpg" alt="Julia beim Gala-Abend"><span>Bereit für den Abend</span></div>
+      <div class="gallery-tile"><img src="img/gallery-rings.jpg" alt="Die Ringe"><span>Für immer</span></div>
     </div>
   </div>
 </section>
