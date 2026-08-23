@@ -98,17 +98,10 @@
     display:flex;align-items:center;justify-content:space-between;
   }
   .brand{
-    display:inline-flex;align-items:baseline;text-decoration:none;line-height:1;
+    display:inline-block;text-decoration:none;line-height:1;
     font-family:var(--font-script-display);font-weight:700;font-size:46px;
-  }
-  .brand .j1, .brand .j2{
     background-image:var(--gold-shine);background-size:200% auto;
     -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;
-  }
-  .brand .j1{transform:translateY(-8px) rotate(-8deg);}
-  .brand .j2{transform:translateY(8px) rotate(-8deg);}
-  .brand .amp{
-    font-size:.48em;margin:0 7px;color:var(--gold-600);align-self:center;
   }
   nav.links{display:flex;gap:26px;flex-wrap:wrap;}
   nav.links a{
@@ -401,7 +394,7 @@
 
 <header class="site-nav">
   <div class="nav-inner">
-    <a href="#top" class="brand"><span class="j1">J</span><span class="amp">&amp;</span><span class="j2">J</span></a>
+    <a href="#top" class="brand">J &amp; J</a>
     <nav class="links" id="navLinks">
       <a href="#brautpaar">Brautpaar</a>
       <a href="#motto">Motto</a>
